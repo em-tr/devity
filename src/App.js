@@ -1,15 +1,31 @@
-import "./App.css";
-import Button from "@mui/material/Button";
+import { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>hello world!</h1>
-        <Button variant="contained">Hello World</Button>
-      </header>
-    </div>
-  );
+import "./App.css";
+
+import Navbar from "./components/layout/Navbar";
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
+import Dashboard from "./components/dashboard/Dashboard";
+import ProjectDetails from "./components/projects/ProjectDetails";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <Navbar />
+          <Routes>
+            <Route exact path="/" element={<Dashboard />} />
+            <Route exact path="/login" element={<Login />} />
+            <Route exact path="/register" element={<Register />} />
+            <Route exact path="/project/:id" element={<ProjectDetails />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
