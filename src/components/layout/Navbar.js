@@ -15,8 +15,16 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 
-const pages = ["Board", "Tasks", "Backlog"];
-const signedOutLinks = ["Signup", "Login"];
+const pages = [
+  { link: "/", value: "Board" },
+  { link: "/newproject", value: "New Project" },
+  { link: "/", value: "Tasks" },
+  { link: "/", value: "Backlog" },
+];
+const signedOutLinks = [
+  { link: "/register", value: "Signup" },
+  { link: "/login", value: "Login" },
+];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function stringToColor(string) {
@@ -108,9 +116,9 @@ const Navbar = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {pages.map((obj, i) => (
+                <MenuItem key={i} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{obj.value}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -125,13 +133,14 @@ const Navbar = () => {
 
           {/* Signed in view */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
+            {pages.map((obj, i) => (
               <Button
-                key={page}
+                key={i}
                 onClick={handleCloseNavMenu}
                 sx={{ color: "white", display: "block" }}
+                href={obj.link}
               >
-                {page}
+                {obj.value}
               </Button>
             ))}
           </Box>
@@ -172,13 +181,14 @@ const Navbar = () => {
               alignSelf: "center",
             }}
           >
-            {signedOutLinks.map((links) => (
+            {signedOutLinks.map((obj, i) => (
               <Button
-                key={links}
+                key={i}
                 onClick={handleCloseNavMenu}
                 sx={{ color: "white" }}
+                href={obj.link}
               >
-                {links}
+                {obj.value}
               </Button>
             ))}
           </Box>
