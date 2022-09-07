@@ -5,13 +5,7 @@ import ProjectPriority from "./ProjectPriority";
 import Button from "@mui/material/Button";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import { Container } from "@mui/system";
-import {
-  Stack,
-  Grid,
-  TextField,
-  Typography,
-  TextareaAutosize,
-} from "@mui/material";
+import { Stack, Grid, TextField, Typography } from "@mui/material";
 
 class NewProject extends Component {
   state = {
