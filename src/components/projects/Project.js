@@ -11,14 +11,17 @@ import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
 const card = (
   <React.Fragment>
     <CardContent>
-      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-        <Chip
-          label="important"
-          size="small"
-          color="warning"
-          icon={<PriorityHighIcon />}
-        />
-      </Typography>
+      <Typography
+        sx={{ fontSize: 14 }}
+        color="text.secondary"
+        gutterBottom
+      ></Typography>
+      <Chip
+        label="important"
+        size="small"
+        color="warning"
+        icon={<PriorityHighIcon />}
+      />
       <Typography variant="h5" component="div">
         Project title
       </Typography>
